@@ -1,0 +1,85 @@
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository
+$ mkdir Rebase
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository
+$ cd Rebase
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase
+$ git init
+Initialized empty Git repository in //win2012/y21acs/y21acs446/Devops/Repository/Rebase/.git/
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ git remote add origin https://github.com/vinayvk-002/practice.git
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ git pull origin main
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 10 (delta 1), reused 6 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (10/10), 1.31 KiB | 9.00 KiB/s, done.
+From https://github.com/vinayvk-002/practice
+ * branch            main       -> FETCH_HEAD
+ * [new branch]      main       -> origin/main
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ ls
+file.txt  file2.txt  file3.txt
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ git branch feature2
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ git checkout feature2
+Switched to branch 'feature2'
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git branch
+* feature2
+  master
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ touch file5.txt
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git status
+On branch feature2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file5.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git add .
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git commit -m "added file5 to feature2 branch"
+[feature2 a6c9b6c] added file5 to feature2 branch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file5.txt
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git status
+On branch feature2
+nothing to commit, working tree clean
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git rebase master
+Current branch feature2 is up to date.
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (feature2)
+$ git checkout master
+Switched to branch 'master'
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ git merge feature2
+Updating d4b34b1..a6c9b6c
+Fast-forward
+ file5.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file5.txt
+
+y21acs446@RP21SYS16 MINGW64 /z/Devops/Repository/Rebase (master)
+$ ls
+file.txt  file2.txt  file3.txt  file5.txt
